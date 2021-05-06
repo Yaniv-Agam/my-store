@@ -27,7 +27,8 @@ const Ingredients = (props) =>{
                   return (
                       <div>
                       <Button label={ingredient.name + ' price: ₪' + ingredient.price} className="p-button-raised p-button-text" 
-                      onClick={()=> addIngredient(ingredient)} style={{textTransform: 'capitalize', width: '100%'}} />
+                      onClick={()=> addIngredient(ingredient)} style={{textTransform: 'capitalize', width: '100%'}}
+                      tooltip={'Add ' + ingredient.name + ' to cart'} tooltipOptions={{ position: 'bottom', mouseTrack: true, mouseTrackTop: 15 }} />
                         <hr style={{marginTop: '0.2rem', marginBottom: '0.2rem'}}/>
                       </div>
                       );
@@ -41,7 +42,8 @@ const Ingredients = (props) =>{
                   return (
                       <div>
                       <Button label={ingredient.name + ' price: ₪' + ingredient.price} className="p-button-raised p-button-text" 
-                      onClick={()=> removeIngredient(ingredient)} style={{textTransform: 'capitalize', width: '100%'}} />
+                      onClick={()=> removeIngredient(ingredient)} style={{textTransform: 'capitalize', width: '100%'}}
+                      tooltip={'Click to remove ' + ingredient.name + ' from cart'} tooltipOptions={{ position: 'bottom', mouseTrack: true, mouseTrackTop: 15 }} />
                         <hr style={{marginTop: '0.2rem', marginBottom: '0.2rem'}}/>
                       </div>
                       );
@@ -52,11 +54,11 @@ const Ingredients = (props) =>{
         const [modalShow, setModalShow] = useState(false);
             return (
               <div className="p-grid">
-                <div className="p-offset-1 p-col-3">
+                <div className="p-offset-1 p-col-2">
                     <h1>Ingredients List</h1>
                     {!ingredients ? <h4>Loading...</h4> : ingredientsList(ingredients) }
                 </div>
-              <div className="p-col-3">
+              <div className="p-offset-1 p-col-2">
                 <h1>My Shoping List</h1>
                     {cart.length > 0 ? (
                         cartList(cart)

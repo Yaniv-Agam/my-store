@@ -32,7 +32,7 @@ export const addItem = (item) => {
   if (!tmpItem) {
     tmpItem = {...item};
     tmpItem['count'] = 1;
-    globalState.summeryCart.push();
+    globalState.summeryCart.push(tmpItem);
   } else {
     tmpItem['count'] += tmpItem['count'];
     tmpItem.price += item.price;

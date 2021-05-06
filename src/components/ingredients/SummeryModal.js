@@ -69,7 +69,7 @@ const summeryList = (cart) => {
         return (
             <div className="p-grid">
               <div className="p-col-3">
-                <span key={item.name} style={{textTransform: 'capitalize'}}> {item['count'] + 1 + ' x ' + item.name}</span>
+                <span key={item.name} style={{textTransform: 'capitalize'}}> {item['count'] + ' x ' + item.name}</span>
               </div>
               <div className="p-col-2">
                 <NumberFormat className="p-ml-2" value={item.price} prefix={'₪'} displayType={'text'} fixedDecimalScale decimalScale={2}/>
@@ -99,7 +99,9 @@ const summeryList = (cart) => {
           <div>
               {summeryList(summeryCart)}
               <hr />
-              <div>Total Amount: {totalAmount}</div>
+              <div>Total Amount: 
+                <NumberFormat className="p-ml-2" value={totalAmount} prefix={'₪'} displayType={'text'} fixedDecimalScale decimalScale={2}/>
+              </div>
           </div>
           <hr />
           <UserDataForm 
