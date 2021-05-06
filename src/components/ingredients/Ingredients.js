@@ -25,10 +25,10 @@ const Ingredients = (props) =>{
             if (ingredients && ingredients.length > 0) {
                 return (ingredients.map((ingredient, index) => {
                   return (
-                      <div>
-                      <Button label={ingredient.name + ' price: ₪' + ingredient.price} className="p-button-raised p-button-text" 
-                      onClick={()=> addIngredient(ingredient)} style={{textTransform: 'capitalize', width: '100%'}}
-                      tooltip={'Add ' + ingredient.name + ' to cart'} tooltipOptions={{ position: 'bottom', mouseTrack: true, mouseTrackTop: 15 }} />
+                      <div key={ingredient.name}>
+                        <Button label={ingredient.name + ' price: ₪' + ingredient.price} className="p-button-raised p-button-text" 
+                          onClick={()=> addIngredient(ingredient)} style={{textTransform: 'capitalize', width: '100%'}}
+                          tooltip={'Add ' + ingredient.name + ' to cart'} tooltipOptions={{ position: 'bottom', mouseTrack: true, mouseTrackTop: 15 }} />
                         <hr style={{marginTop: '0.2rem', marginBottom: '0.2rem'}}/>
                       </div>
                       );
@@ -40,10 +40,10 @@ const Ingredients = (props) =>{
             if (ingredients && ingredients.length > 0) {
                 return (ingredients.map((ingredient, index) => {
                   return (
-                      <div>
-                      <Button label={ingredient.name + ' price: ₪' + ingredient.price} className="p-button-raised p-button-text" 
-                      onClick={()=> removeIngredient(ingredient)} style={{textTransform: 'capitalize', width: '100%'}}
-                      tooltip={'Click to remove ' + ingredient.name + ' from cart'} tooltipOptions={{ position: 'bottom', mouseTrack: true, mouseTrackTop: 15 }} />
+                      <div key={ingredient.name + '_' + index}>
+                        <Button label={ingredient.name + ' price: ₪' + ingredient.price} className="p-button-raised p-button-text" 
+                          onClick={()=> removeIngredient(ingredient)} style={{textTransform: 'capitalize', width: '100%'}}
+                          tooltip={'Click to remove ' + ingredient.name + ' from cart'} tooltipOptions={{ position: 'bottom', mouseTrack: true, mouseTrackTop: 15 }} />
                         <hr style={{marginTop: '0.2rem', marginBottom: '0.2rem'}}/>
                       </div>
                       );

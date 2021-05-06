@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { InputText } from 'primereact/inputtext';
 
-const UserDataForm = ({onSubmit}) => {
+const UserDataForm = ({onsubmit, aftersubmit}) => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [comments, setComments] = useState('');
 
     return (
-        <form onSubmit={onSubmit} className="p-fluid">
+        <form 
+        onSubmit={onsubmit}
+        afterSubmit={aftersubmit}
+        className="p-fluid">
         <div className="p-field p-mt-5">
           <span className="p-float-label">
             <InputText id="username" value={name} autoFocus onChange={(e) => setName(e.target.value)} />

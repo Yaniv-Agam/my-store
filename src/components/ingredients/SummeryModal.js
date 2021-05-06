@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom'
 import {Context} from '../App'
 import UserDataForm from './UserDataForm';
 
@@ -15,7 +16,8 @@ const SummeryModal = (props) => {
   // const [email, setEmail] = useState('');
   // const [comments, setComments] = useState('');
   // const [errors, setErrors] = useState([]);
-  
+  const history = useHistory()
+
   const hadleSubmit = (e) => {
     e.preventDefault();
 
@@ -67,9 +69,9 @@ const summeryList = (cart) => {
   if (cart && cart.length > 0) {
       return (cart.map((item, index) => {
         return (
-            <div className="p-grid">
+            <div className="p-grid" key={item.name}>
               <div className="p-col-3">
-                <span key={item.name} style={{textTransform: 'capitalize'}}> {item['count'] + ' x ' + item.name}</span>
+                <span style={{textTransform: 'capitalize'}}> {item['count'] + ' x ' + item.name}</span>
               </div>
               <div className="p-col-2">
                 <NumberFormat className="p-ml-2" value={item.price} prefix={'₪'} displayType={'text'} fixedDecimalScale decimalScale={2}/>
@@ -105,7 +107,8 @@ const summeryList = (cart) => {
           </div>
           <hr />
           <UserDataForm 
-          onSumbit={hadleSubmit}/>
+          onsumbit={hadleSubmit}
+          aftersubmit={() => history.push('/landing')}/>
         </Modal.Body>
         <Modal.Footer>
             <Button onClick={()=>hadleSubmit}>Confirm order</Button>
