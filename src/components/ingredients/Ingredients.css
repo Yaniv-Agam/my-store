@@ -1,0 +1,12 @@
+.p-button-in-table {
+    height: 0.5rem !important;
+}
+
+.totalCartCard {
+    display: inline-block;
+    position: fixed;
+    /* left: 0; */
+    top: 150px;
+    width: 200px;
+    /* height: 100%; */
+  }

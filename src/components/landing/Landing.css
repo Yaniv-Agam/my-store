@@ -1,0 +1,17 @@
+@media screen and (max-width: 960px) {
+    .p-button {
+        margin-bottom: 0.5rem;
+    }
+    .p-button:not(.p-button-icon-only) {
+        display: flex;
+        width: 100%;
+    }
+    .p-button {
+        margin-bottom: 0;
+    }
+}
+
+.order-button {
+    background-color: #14a13c !important;
+    border-color: #14a13c !important;
+}
